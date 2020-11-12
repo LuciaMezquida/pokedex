@@ -3,9 +3,16 @@
   margin: 0;
   padding: 0;
 }
+body {
+  background-color: rgb(255, 202, 0);
+}
 
 .container {
   font-family: "Turret Road", cursive;
+  background-image: url(../images/pikachu.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
 }
 .list {
   list-style: none;
