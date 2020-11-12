@@ -26,4 +26,8 @@ Pokemon.propTypes = {
   types: PropTypes.arrayOf(PropTypes.string),
 };
 
+Pokemon.defaultProps = {
+  url: "../images/default-img.png",
+  name: "En construcción",
+};
 export default Pokemon;
