@@ -10,3 +10,12 @@
 .list {
   list-style: none;
 }
+.cards-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+.poke-card {
+  border: 1px solid black;
+  margin: 10px;
+}
