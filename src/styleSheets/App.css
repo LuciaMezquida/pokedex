@@ -18,6 +18,8 @@ body {
   height: 100vh;
   padding: 0 20px;
 }
+
+/*Title*/
 .title {
   text-transform: uppercase;
   text-align: center;
@@ -33,11 +35,18 @@ body {
 }
 @media all and (min-width: 1024px) {
   .title {
+    font-size: 80px;
+    padding: 50px 0 50px 0;
+  }
+}
+@media all and (min-width: 1300px) {
+  .title {
     font-size: 90px;
     padding: 50px 0 70px 0;
   }
 }
 
+/*Cards List*/
 .cards-list {
   display: grid;
   grid-template-columns: 1fr;
