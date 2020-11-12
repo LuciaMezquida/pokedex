@@ -25,4 +25,5 @@ Pokemon.propTypes = {
   name: PropTypes.string,
   types: PropTypes.arrayOf(PropTypes.string),
 };
+
 export default Pokemon;
