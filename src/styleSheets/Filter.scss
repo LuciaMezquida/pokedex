@@ -1,11 +1,31 @@
 /*Filter*/
-.main__form {
-  text-align: center;
-}
-.main__form-input {
-  width: 600px;
-  height: 40px;
-  font-family: "Turret Road", cursive;
-  font-size: 25px;
-  padding-left: 10px;
+.main {
+  &__form {
+    text-align: center;
+    margin-bottom: 3%;
+  }
+  &__form-input {
+    width: 300px;
+    height: 40px;
+    font-family: "Turret Road", cursive;
+    font-size: 20px;
+    padding-left: 10px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    opacity: 0.8;
+    box-shadow: 1px 0px 15px 0px #000000;
+    @media all and (min-width: 768px) {
+      width: 500px;
+      font-size: 23px;
+    }
+    @media all and (min-width: 1024px) {
+      width: 600px;
+      font-size: 24px;
+    }
+    @media all and (min-width: 1300px) {
+      width: 700px;
+      font-size: 26px;
+    }
+  }
 }

@@ -29,12 +29,16 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <h1 className="title">¡Hazte con todos!</h1>
-        <Filter
-          handleInput={this.handleInput}
-          searchValue={this.state.searchValue}
-        />
-        <PokeList data={this.filteredData()} />
+        <header>
+          <h1 className="title">¡Hazte con todos!</h1>
+        </header>
+        <main>
+          <Filter
+            handleInput={this.handleInput}
+            searchValue={this.state.searchValue}
+          />
+          <PokeList data={this.filteredData()} />
+        </main>
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import React from "react";
+import "../styleSheets/Pokemon.scss";
 import PropTypes from "prop-types";
 
 class Pokemon extends React.Component {
@@ -10,7 +11,11 @@ class Pokemon extends React.Component {
     ));
     return (
       <div className="poke-card">
-        <img src={this.props.url} alt={this.props.name} className="poke-image" />
+        <img
+          src={this.props.url}
+          alt={this.props.name}
+          className="poke-image"
+        />
         <div className="text-container">
           <h2 className="poke-name">{this.props.name}</h2>
           <ul className="type-list">{typesList}</ul>
