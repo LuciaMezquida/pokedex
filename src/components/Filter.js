@@ -1,3 +1,4 @@
+import "../styleSheets/Filter.scss";
 import PropTypes from "prop-types";
 const Filter = (props) => {
   const handleInput = (ev) => {

@@ -1,4 +1,4 @@
-import "../styleSheets/App.css";
+import "../styleSheets/App.scss";
 import React from "react";
 import pokemon from "../data/pokemon.json";
 import PokeList from "./PokeList";
