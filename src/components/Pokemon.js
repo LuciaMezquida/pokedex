@@ -3,21 +3,40 @@ import "../styleSheets/Pokemon.scss";
 import PropTypes from "prop-types";
 
 class Pokemon extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      url: "",
+      type: [],
+    };
+  }
+  componentDidMount() {
+    fetch(this.props.url)
+      .then((response) => response.json())
+      .then((data) =>
+        this.setState({
+          name: data.species.name,
+          url: data.sprites.front_default,
+          type: data.types,
+        })
+      );
+  }
   render() {
-    const typesList = this.props.types.map((item, index) => (
+    const typesList = this.state.type.map((item, index) => (
       <li key={index} className="list">
-        {item}
+        {item.type.name}
       </li>
     ));
     return (
       <div className="poke-card">
         <img
-          src={this.props.url}
-          alt={this.props.name}
+          src={this.state.url}
+          alt={this.state.name}
           className="poke-image"
         />
         <div className="text-container">
-          <h2 className="poke-name">{this.props.name}</h2>
+          <h2 className="poke-name">{this.state.name}</h2>
           <ul className="type-list">{typesList}</ul>
         </div>
       </div>
@@ -25,11 +44,7 @@ class Pokemon extends React.Component {
   }
 }
 
-Pokemon.propTypes = {
-  url: PropTypes.string,
-  name: PropTypes.string,
-  types: PropTypes.arrayOf(PropTypes.string),
-};
+Pokemon.propTypes = {};
 
 Pokemon.defaultProps = {
   url: "../images/default-img.png",
