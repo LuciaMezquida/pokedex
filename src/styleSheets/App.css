@@ -46,6 +46,17 @@ body {
   }
 }
 
+/*Filter*/
+.main__form {
+  text-align: center;
+}
+.main__form-input {
+  width: 600px;
+  height: 40px;
+  font-family: "Turret Road", cursive;
+  font-size: 25px;
+  padding-left: 10px;
+}
 /*Cards List*/
 .cards-list {
   display: grid;
