@@ -36,19 +36,18 @@ class App extends React.Component {
     return filteredPokemon;
   }
   render() {
+    const { searchValue, apiData } = this.state;
     return (
       <div className="container">
         <header>
           <h1 className="title">¡Hazte con todos!</h1>
         </header>
         <main>
-          <Filter
-            handleInput={this.handleInput}
-            searchValue={this.state.searchValue}
-          />
+          <Filter handleInput={this.handleInput} searchValue={searchValue} />
           <PokeList
             data={this.filteredData()}
-            searchValue={this.state.searchValue}
+            searchValue={searchValue}
+            num={apiData.length}
           />
         </main>
       </div>

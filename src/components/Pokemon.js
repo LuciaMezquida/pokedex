@@ -35,7 +35,6 @@ class Pokemon extends React.Component {
     }
   }
   render() {
-    console.log(this.props);
     const { url, name, type, id } = this.state;
     const typesList = type.map((item, index) => (
       <li key={index} className="list">
@@ -44,7 +43,7 @@ class Pokemon extends React.Component {
     ));
     return (
       <div className="poke-card">
-        <p className="number">{`25/${id}`}</p>
+        <p className="number">{`${this.props.num}/${id}`}</p>
         <img src={url} alt={name} className="poke-image" />
         <div className="text-container">
           <h2 className="poke-name">{name}</h2>
