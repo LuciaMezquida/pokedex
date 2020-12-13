@@ -1,6 +1,5 @@
 import "../styleSheets/App.scss";
 import React from "react";
-import pokemon from "../data/pokemon.json";
 import PokeList from "./PokeList";
 import Filter from "./Filter";
 import apiCall from "../data/api";

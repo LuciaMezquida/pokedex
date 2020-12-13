@@ -10,32 +10,36 @@ class Pokemon extends React.Component {
       url: "",
       type: [],
       id: 0,
-      error: null,
+      species: "",
+      evolution: "",
     };
-    this.callingApi = this.callingApi.bind(this);
   }
-  callingApi = () => {
-    return fetch(this.props.url)
+
+  componentDidMount() {
+    fetch(this.props.url)
       .then((response) => response.json())
-      .then((info) => {
-        return info;
-      });
-  };
-  async componentDidMount() {
-    try {
-      const data = await this.callingApi();
-      this.setState({
-        name: data.name,
-        url: data.sprites.front_default,
-        type: data.types,
-        id: data.id,
-      });
-    } catch (error) {
-      this.setState({ error: error });
-    }
+      .then((info) =>
+        this.setState({
+          name: info.name,
+          url: info.sprites.front_default,
+          type: info.types,
+          id: info.id,
+          species: info.species.url,
+        })
+      )
+      .then(() =>
+        fetch(this.state.species)
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.evolves_from_species !== null) {
+              this.setState({ evolution: data.evolves_from_species.name });
+            }
+          })
+      );
   }
   render() {
-    const { url, name, type, id } = this.state;
+    const { url, name, type, id, evolution } = this.state;
+    const evolutionClass = evolution !== "" ? `Evoluciona de ${evolution}` : "";
     const typesList = type.map((item, index) => (
       <li key={index} className="list">
         {item.type.name}
@@ -48,6 +52,7 @@ class Pokemon extends React.Component {
         <div className="text-container">
           <h2 className="poke-name">{name}</h2>
           <ul className="type-list">{typesList}</ul>
+          <p className="evolution">{evolutionClass}</p>
         </div>
       </div>
     );
@@ -56,6 +61,7 @@ class Pokemon extends React.Component {
 
 Pokemon.propTypes = {
   num: PropTypes.number.isRequired,
+  url: PropTypes.string.isRequired,
 };
 
 Pokemon.defaultProps = {
