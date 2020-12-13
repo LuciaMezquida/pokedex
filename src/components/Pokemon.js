@@ -51,8 +51,10 @@ class Pokemon extends React.Component {
         <img src={url} alt={name} className="poke-image" />
         <div className="text-container">
           <h2 className="poke-name">{name}</h2>
-          <ul className="type-list">{typesList}</ul>
-          <p className="evolution">{evolutionClass}</p>
+          <div className="evolution-container">
+            <ul className="type-list">{typesList}</ul>
+            <p className="evolution">{evolutionClass}</p>
+          </div>
         </div>
       </div>
     );
