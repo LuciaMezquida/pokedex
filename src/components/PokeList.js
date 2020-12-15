@@ -2,13 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 import "../styleSheets/PokeList.scss";
 import Pokemon from "./Pokemon";
+import { Link } from "react-router-dom";
 
 class PokeList extends React.Component {
   render() {
     const cardList = this.props.data.map((item) => (
-      <li key={item.name} className="list">
-        <Pokemon name={item.name} url={item.url} num={this.props.num} />
-      </li>
+      <Link className="link" to={`/${item.name}`}>
+        <li key={item.name} className="list">
+          <Pokemon name={item.name} url={item.url} num={this.props.num} />
+        </li>
+      </Link>
     ));
     return <ul className="cards-list">{cardList}</ul>;
   }

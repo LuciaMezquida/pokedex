@@ -1,8 +1,10 @@
 import "../styleSheets/App.scss";
 import React from "react";
 import PokeList from "./PokeList";
+import PokeDetail from "./PokeDetail";
 import Filter from "./Filter";
 import apiCall from "../data/api";
+import { Route, Switch } from "react-router-dom";
 
 class App extends React.Component {
   constructor(props) {
@@ -42,12 +44,20 @@ class App extends React.Component {
           <h1 className="title">¡Hazte con todos!</h1>
         </header>
         <main>
-          <Filter handleInput={this.handleInput} searchValue={searchValue} />
-          <PokeList
-            data={this.filteredData()}
-            searchValue={searchValue}
-            num={apiData.length}
-          />
+          <Switch>
+            <Route exact path="/">
+              <Filter
+                handleInput={this.handleInput}
+                searchValue={searchValue}
+              />
+              <PokeList
+                data={this.filteredData()}
+                searchValue={searchValue}
+                num={apiData.length}
+              />
+            </Route>
+            <Route path="/:name" component={PokeDetail} />
+          </Switch>
         </main>
       </div>
     );
