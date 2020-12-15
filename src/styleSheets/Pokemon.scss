@@ -7,6 +7,10 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  transition: 0.5s ease;
+  &:hover {
+    box-shadow: 1px 0px 15px 0px #ffffff;
+  }
 }
 .poke-image {
   width: 40%;
