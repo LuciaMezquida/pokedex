@@ -15,6 +15,7 @@ class App extends React.Component {
     };
     this.handleInput = this.handleInput.bind(this);
     this.filteredData = this.filteredData.bind(this);
+    this.renderPokeDetail = this.renderPokeDetail.bind(this);
   }
   componentDidMount() {
     apiCall().then((data) => {
@@ -36,6 +37,19 @@ class App extends React.Component {
     );
     return filteredPokemon;
   }
+  renderPokeDetail(props) {
+    const pokeDetailName = props.match.params.name;
+    const pokeDetail = this.state.apiData.find(
+      (item) => item.name === pokeDetailName
+    );
+    if (pokeDetail) {
+      return <PokeDetail name={pokeDetail.name} url={pokeDetail.url} />;
+    }
+    // else {
+    //   return <NotFound />;
+    // }
+  }
+
   render() {
     const { searchValue, apiData } = this.state;
     return (
@@ -56,7 +70,7 @@ class App extends React.Component {
                 num={apiData.length}
               />
             </Route>
-            <Route path="/:name" component={PokeDetail} />
+            <Route path="/:name" render={this.renderPokeDetail} />
           </Switch>
         </main>
       </div>
