@@ -8,9 +8,14 @@ class PokeDetail extends Component {
     this.state = {
       name: "",
       image: "",
-      id: 0,
-      species: "",
+      height: 0,
+      weight: 0,
       evolution: "",
+      abilities: [],
+      species: "",
+      evolve_to1: "",
+      evolve_to2: "",
+      evolve_to3: "",
     };
   }
   componentDidMount() {
@@ -20,7 +25,9 @@ class PokeDetail extends Component {
         this.setState({
           name: info.name,
           image: info.sprites.front_default,
-          id: info.id,
+          height: info.height,
+          weight: info.weight,
+          abilities: info.abilities,
           species: info.species.url,
         })
       )
@@ -28,22 +35,41 @@ class PokeDetail extends Component {
         fetch(this.state.species)
           .then((response) => response.json())
           .then((data) => {
-            if (data.evolves_from_species !== null) {
-              this.setState({ evolution: data.evolves_from_species.name });
-            }
+            this.setState({ evolution: data.evolution_chain.url });
+          })
+      )
+      .then(() =>
+        fetch(this.state.evolution)
+          .then((response) => response.json())
+          .then((evol) => {
+            this.setState({
+              evolve_to1: evol.chain.species.name,
+              evolve_to2: evol.chain.evolves_to[0].species.name,
+              evolve_to3: evol.chain.evolves_to[0].evolves_to[0].species.name,
+            });
+            console.log(evol.chain);
           })
       );
   }
   render() {
-    const { image } = this.state;
+    const {
+      image,
+      height,
+      weight,
+      abilities,
+      evolve_to1,
+      evolve_to2,
+      evolve_to3,
+    } = this.state;
+    const moves = abilities.map((item) => " " + item.ability.name);
     return (
       <article className="detail">
         <img src={image} alt={this.props.name} className="detail__image" />
-        <h2 className="detail__name">{this.props.name}</h2>
-        <p className="detail__height"></p>
-        <p className="detail__weight"></p>
-        <p className="detail__habilities"></p>
-        <p className="detail__evolution">hola</p>
+        <h2 className="detail__name">{`Nombre: ${this.props.name}`}</h2>
+        <p className="detail__height">{`Altura: ${height} m`}</p>
+        <p className="detail__weight">{`Peso: ${weight} kg`}</p>
+        <p className="detail__abilities">{`Habilidades: ${moves}`}</p>
+        <p className="detail__evolution">{`Evoluciones: ${evolve_to1} evoluciona a ${evolve_to2}, el cual evoluciona a ${evolve_to3}`}</p>
       </article>
     );
   }
