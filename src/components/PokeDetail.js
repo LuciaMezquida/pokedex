@@ -8,6 +8,7 @@ class PokeDetail extends Component {
     this.state = {
       name: "",
       image: "",
+      image_back: "",
       height: 0,
       weight: 0,
       evolution: "",
@@ -25,6 +26,7 @@ class PokeDetail extends Component {
         this.setState({
           name: info.name,
           image: info.sprites.front_default,
+          image_back: info.sprites.back_default,
           height: info.height,
           weight: info.weight,
           abilities: info.abilities,
@@ -54,6 +56,7 @@ class PokeDetail extends Component {
   render() {
     const {
       image,
+      image_back,
       height,
       weight,
       abilities,
@@ -64,12 +67,33 @@ class PokeDetail extends Component {
     const moves = abilities.map((item) => " " + item.ability.name);
     return (
       <article className="detail">
-        <img src={image} alt={this.props.name} className="detail__image" />
-        <h2 className="detail__name">{`Nombre: ${this.props.name}`}</h2>
-        <p className="detail__height">{`Altura: ${height} m`}</p>
-        <p className="detail__weight">{`Peso: ${weight} kg`}</p>
-        <p className="detail__abilities">{`Habilidades: ${moves}`}</p>
-        <p className="detail__evolution">{`Evoluciones: ${evolve_to1} evoluciona a ${evolve_to2}, el cual evoluciona a ${evolve_to3}`}</p>
+        <div>
+          <img src={image} alt={this.props.name} className="detail__image" />
+          <img
+            src={image_back}
+            alt={this.props.name}
+            className="detail__image"
+          />
+        </div>
+        <div>
+          <h2 className="detail__name">{`Nombre: ${this.props.name}`}</h2>
+          <p className="detail__height">
+            <b>Altura:</b>
+            {` ${height} m`}
+          </p>
+          <p className="detail__weight">
+            <b>Peso:</b>
+            {` ${weight} kg`}
+          </p>
+          <p className="detail__abilities">
+            <b>Habilidades:</b>
+            {` ${moves}`}
+          </p>
+          <p className="detail__evolution">
+            <b>Evoluciones:</b>
+            {` ${evolve_to1} evoluciona a ${evolve_to2}, el cual evoluciona a ${evolve_to3}`}
+          </p>
+        </div>
       </article>
     );
   }
