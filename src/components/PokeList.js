@@ -6,10 +6,11 @@ import { Link } from "react-router-dom";
 
 class PokeList extends React.Component {
   render() {
-    const cardList = this.props.data.map((item) => (
+    const { data, num } = this.props;
+    const cardList = data.map((item) => (
       <Link className="link" to={`/${item.name}`}>
         <li key={item.name} className="list">
-          <Pokemon name={item.name} url={item.url} num={this.props.num} />
+          <Pokemon name={item.name} url={item.url} num={num} />
         </li>
       </Link>
     ));
