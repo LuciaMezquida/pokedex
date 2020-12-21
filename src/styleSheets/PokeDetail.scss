@@ -2,10 +2,84 @@
   background-color: rgba(255, 255, 255, 0.466);
   border-radius: 10px;
   padding: 20px;
-  max-width: 80vw;
+  width: 85vw;
   margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  line-height: 1.3rem;
+
+  @media all and(min-width: 768px) {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    width: 650px;
+    line-height: 1.6rem;
+  }
+  @media all and(min-width: 1024px) {
+    width: 780px;
+    line-height: 2rem;
+  }
+  @media all and(min-width: 1200px) {
+    width: 880px;
+    line-height: 2rem;
+    margin-bottom: 50px;
+  }
+  &__image {
+    width: 100px;
+    @media all and(min-width: 768px) {
+      width: 200px;
+    }
+  }
+  &__name {
+    font-size: 1.6rem;
+    text-transform: capitalize;
+    @media all and(min-width: 768px) {
+      font-size: 2.4rem;
+    }
+    @media all and(min-width: 1024px) {
+      font-size: 2.8rem;
+    }
+  }
+  &__height,
+  &__weight,
+  &__abilities,
+  &__evolution {
+    font-size: 1.2rem;
+    @media all and(min-width: 768px) {
+      margin-top: 1rem;
+      font-size: 1.6rem;
+    }
+    @media all and(min-width: 1080px) {
+      font-size: 1.8rem;
+    }
+  }
+  &__btn {
+    color: black;
+    background-color: #fadfae;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 10px 20px;
+    transition: 0.5s ease;
+    @media all and(min-width: 1080px) {
+      font-size: 1.8rem;
+    }
+    &:hover {
+      box-shadow: 1px 0px 15px 0px #ffffff;
+    }
+  }
+}
+.btn-container {
+  margin: 20px 0 0 7.5%;
+  @media all and(min-width: 768px) {
+    width: 650px;
+    margin: auto;
+  }
+  @media all and(min-width: 1024px) {
+    width: 780px;
+  }
+  @media all and(min-width: 1200px) {
+    width: 880px;
+  }
 }

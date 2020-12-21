@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "../styleSheets/PokeDetail.scss";
+import { Link } from "react-router-dom";
 
 class PokeDetail extends Component {
   constructor(props) {
@@ -49,7 +50,6 @@ class PokeDetail extends Component {
               evolve_to2: evol.chain.evolves_to[0].species.name,
               evolve_to3: evol.chain.evolves_to[0].evolves_to[0].species.name,
             });
-            console.log(evol.chain);
           })
       );
   }
@@ -66,35 +66,49 @@ class PokeDetail extends Component {
     } = this.state;
     const moves = abilities.map((item) => " " + item.ability.name);
     return (
-      <article className="detail">
-        <div>
-          <img src={image} alt={this.props.name} className="detail__image" />
-          <img
-            src={image_back}
-            alt={this.props.name}
-            className="detail__image"
-          />
+      <>
+        <article className="detail">
+          <div>
+            <img
+              className="detail__image"
+              src={image}
+              alt={this.props.name}
+              className="detail__image"
+            />
+            <img
+              src={image_back}
+              alt={this.props.name}
+              className="detail__image"
+            />
+          </div>
+          <div>
+            <h2 className="detail__name">{`Nombre: ${this.props.name}`}</h2>
+            <p className="detail__height">
+              <b>Altura:</b>
+              {` ${height} m`}
+            </p>
+            <p className="detail__weight">
+              <b>Peso:</b>
+              {` ${weight} kg`}
+            </p>
+            <p className="detail__abilities">
+              <b>Habilidades:</b>
+              {` ${moves}`}
+            </p>
+            <p className="detail__evolution">
+              <b>Evoluciones:</b>
+              {` ${evolve_to1} evoluciona a ${evolve_to2}, el cual evoluciona a ${evolve_to3}`}
+            </p>
+          </div>
+        </article>
+        <div className="btn-container">
+          <Link className="link" to="/">
+            <a href="" className="detail__btn link">
+              Volver
+            </a>
+          </Link>
         </div>
-        <div>
-          <h2 className="detail__name">{`Nombre: ${this.props.name}`}</h2>
-          <p className="detail__height">
-            <b>Altura:</b>
-            {` ${height} m`}
-          </p>
-          <p className="detail__weight">
-            <b>Peso:</b>
-            {` ${weight} kg`}
-          </p>
-          <p className="detail__abilities">
-            <b>Habilidades:</b>
-            {` ${moves}`}
-          </p>
-          <p className="detail__evolution">
-            <b>Evoluciones:</b>
-            {` ${evolve_to1} evoluciona a ${evolve_to2}, el cual evoluciona a ${evolve_to3}`}
-          </p>
-        </div>
-      </article>
+      </>
     );
   }
 }
