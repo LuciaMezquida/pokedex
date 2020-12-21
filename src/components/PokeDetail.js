@@ -45,10 +45,14 @@ class PokeDetail extends Component {
         fetch(this.state.evolution)
           .then((response) => response.json())
           .then((evol) => {
+            let evol3 =
+              evol.chain.evolves_to[0].evolves_to[0] !== undefined
+                ? evol.chain.evolves_to[0].evolves_to[0].species.name
+                : "";
             this.setState({
               evolve_to1: evol.chain.species.name,
               evolve_to2: evol.chain.evolves_to[0].species.name,
-              evolve_to3: evol.chain.evolves_to[0].evolves_to[0].species.name,
+              evolve_to3: evol3,
             });
           })
       );
@@ -65,6 +69,8 @@ class PokeDetail extends Component {
       evolve_to3,
     } = this.state;
     const moves = abilities.map((item) => " " + item.ability.name);
+    let evol3_condition =
+      evolve_to3 !== "" ? `, el cual evoluciona a ${evolve_to3}` : "";
     return (
       <>
         <article className="detail">
@@ -97,7 +103,7 @@ class PokeDetail extends Component {
             </p>
             <p className="detail__evolution">
               <b>Evoluciones:</b>
-              {` ${evolve_to1} evoluciona a ${evolve_to2}, el cual evoluciona a ${evolve_to3}`}
+              {` ${evolve_to1} evoluciona a ${evolve_to2}${evol3_condition}`}
             </p>
           </div>
         </article>
