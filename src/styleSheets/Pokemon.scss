@@ -16,8 +16,11 @@
   width: 40%;
 }
 .text-container {
-  height: 13vh;
+  height: 21vh;
   text-align: center;
+  @media all and (min-width: 768px) {
+    height: 17vh;
+  }
 }
 .poke-name {
   text-transform: capitalize;
