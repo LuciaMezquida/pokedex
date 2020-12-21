@@ -13,12 +13,12 @@ Mediante el uso del servicio de https://pokeapi.co/ que nos devuelve informació
 ~~~
 src
 ├── components
-│   ├── App.js --> (renderiza la tarjeta de cada pokemon, con su foto, nombre y tipos)
-│   ├── Filter.js --> (renderiza a través de una ruta una tajeta con más detalles sobre el pokemon)
-│   ├── Header.js --> (renderiza el listado de tarjetas)
-│   ├── PokeDetail.js --> (renderiza los campos de filtrado por nombre)
-│   ├── PokeList.js --> (renderiza el footer)
-│   └── Pokemon.js --> (renderiza el logo )
+│   ├── App.js
+│   ├── Filter.js --> (renderiza los campos de filtrado por nombre)
+│   ├── Header.js --> (renderiza el header)
+│   ├── PokeDetail.js --> (renderiza a través de una ruta una tajeta con más detalles sobre el pokemon)
+│   ├── PokeList.js --> (renderiza el listado de tarjetas)
+│   └── Pokemon.js --> (renderiza la tarjeta de cada pokemon, con su foto, nombre y tipos )
 ├── data
 │   └── api.js
 ├── images
