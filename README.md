@@ -2,7 +2,7 @@
 
 # Pokemon Character Finder
 
-Se trata de un buscador de los de pokemon desarrollado con [React](https://es.reactjs.org/) y [Sass](https://sass-lang.com/).
+Se trata de un buscador de pokemon desarrollado con [React](https://es.reactjs.org/) y [Sass](https://sass-lang.com/).
 
 ## Contenido
 
