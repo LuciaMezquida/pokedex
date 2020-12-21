@@ -8,48 +8,27 @@ Se trata de un buscador de los de pokemon desarrollado con [React](https://es.re
 
 Mediante el uso del servicio de https://pokeapi.co/ que nos devuelve información sobre los pokemon, se puede filtrar los pokemon por nombre y ver los detalles de cada pokemon, como altura, peso, habilidades, imágenes del pokemon y sus evoluciones.
 
-A su vez, aparecerán varios mensajes de advertencia, como cuando no hay ningún pokemon que coincida con la búsqueda, cuando navega por una URL inexistente y un loader para cuando tarde en producirse la llamada al servidor api.
-
 ## Esctructura
 
 ~~~
 src
 ├── components
-│   ├── CharacterCard --> (renderiza la tarjeta de cada pokemon, con su foto, nombre y tipos)
-│   │   ├── CharacterCard.js
-│   │   └── CharacterCard.scss
-│   ├── CharacterDetail --> (renderiza a través de una ruta una tajeta con más detalles sobre el pokemon)
-│   │   ├── CharacterDetail.js
-│   │   └── CharacterDetail.scss
-│   ├── PokemonList --> (renderiza el listado de tarjetas)
-│   │   ├── PokemonList.js
-│   │   └── PokemonList.scss
-│   ├── Filters --> (renderiza los campos de filtrado por nombre)
-│   │   ├── Filters.js
-│   │   └── Filters.scss
-│   ├── Footer --> (renderiza el footer)
-│   │   ├── Footer.js
-│   │   └── Footer.scss
-│   ├── Header --> (renderiza el logo )
-│   │   ├── Header.js
-│   │   └── Header.scss
-│   ├── Loader --> (renderiza un mensaje y una imagen cuando tarda en producirse la llamada al servidor api)
-│   │   ├── Loader.js
-│   │   └── Loader.scss
-│   ├── NotFound --> (renderiza un mensaje de advertencia cuando se navega por route a una URL inexistente)
-│   │   ├── NotFound.js
-│   │   └── NotFound.scss
-│   ├── NotMatch --> (renderiza un mensaje cuando ningún personaje coincide con los datos introducidos)
-│   │   ├── NotMatch.js
-│   │   └── NotMatch.scss
-│   └── App.js
-│
-├── images
-├── services
+│   ├── App.js --> (renderiza la tarjeta de cada pokemon, con su foto, nombre y tipos)
+│   ├── Filter.js --> (renderiza a través de una ruta una tajeta con más detalles sobre el pokemon)
+│   ├── Header.js --> (renderiza el listado de tarjetas)
+│   ├── PokeDetail.js --> (renderiza los campos de filtrado por nombre)
+│   ├── PokeList.js --> (renderiza el footer)
+│   └── Pokemon.js --> (renderiza el logo )
+├── data
 │   └── api.js
+├── images
 ├── styleSheets
 │   ├── App.scss
-│   └── variables.scss
+│   ├── Filter.scss
+│   ├── index.scss
+│   ├── PokeDetail.scss
+│   ├── PokeList.scss
+│   └── Pokemon.scss 
 └── index.js
 
 
@@ -59,11 +38,11 @@ src
 
 Página principal
 
-![Landing]()
+![Landing](https://i.ibb.co/xjBKGn0/Captura-de-pantalla-2020-12-21-a-las-21-35-37.png)
 
 Tarjeta detallada
 
-![CharacterDetail]()
+![CharacterDetail](https://i.ibb.co/7J9X6m3/Captura-de-pantalla-2020-12-21-a-las-21-36-12.png)
 
 ## Arrancar el proyecto
 
