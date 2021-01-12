@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "../styleSheets/PokeDetail.scss";
 import { Link } from "react-router-dom";
+import apiCall from "../data/api";
 
 class PokeDetail extends Component {
   constructor(props) {
@@ -21,8 +22,7 @@ class PokeDetail extends Component {
     };
   }
   componentDidMount() {
-    fetch(this.props.url)
-      .then((response) => response.json())
+    apiCall(this.props.url)
       .then((info) =>
         this.setState({
           name: info.name,
@@ -35,26 +35,22 @@ class PokeDetail extends Component {
         })
       )
       .then(() =>
-        fetch(this.state.species)
-          .then((response) => response.json())
-          .then((data) => {
-            this.setState({ evolution: data.evolution_chain.url });
-          })
+        apiCall(this.state.species).then((data) => {
+          this.setState({ evolution: data.evolution_chain.url });
+        })
       )
       .then(() =>
-        fetch(this.state.evolution)
-          .then((response) => response.json())
-          .then((evol) => {
-            let evol3 =
-              evol.chain.evolves_to[0].evolves_to[0] !== undefined
-                ? evol.chain.evolves_to[0].evolves_to[0].species.name
-                : "";
-            this.setState({
-              evolve_to1: evol.chain.species.name,
-              evolve_to2: evol.chain.evolves_to[0].species.name,
-              evolve_to3: evol3,
-            });
-          })
+        apiCall(this.state.evolution).then((evol) => {
+          let evol3 =
+            evol.chain.evolves_to[0].evolves_to[0] !== undefined
+              ? evol.chain.evolves_to[0].evolves_to[0].species.name
+              : "";
+          this.setState({
+            evolve_to1: evol.chain.species.name,
+            evolve_to2: evol.chain.evolves_to[0].species.name,
+            evolve_to3: evol3,
+          });
+        })
       );
   }
   render() {

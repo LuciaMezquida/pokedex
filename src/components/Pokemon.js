@@ -1,6 +1,7 @@
 import React from "react";
 import "../styleSheets/Pokemon.scss";
 import PropTypes from "prop-types";
+import apiCall from "../data/api";
 
 class Pokemon extends React.Component {
   constructor(props) {
@@ -16,8 +17,7 @@ class Pokemon extends React.Component {
   }
 
   componentDidMount() {
-    fetch(this.props.url)
-      .then((response) => response.json())
+    apiCall(this.props.url)
       .then((info) =>
         this.setState({
           name: info.name,
@@ -28,13 +28,11 @@ class Pokemon extends React.Component {
         })
       )
       .then(() =>
-        fetch(this.state.species)
-          .then((response) => response.json())
-          .then((data) => {
-            if (data.evolves_from_species !== null) {
-              this.setState({ evolution: data.evolves_from_species.name });
-            }
-          })
+        apiCall(this.state.species).then((data) => {
+          if (data.evolves_from_species !== null) {
+            this.setState({ evolution: data.evolves_from_species.name });
+          }
+        })
       );
   }
   render() {

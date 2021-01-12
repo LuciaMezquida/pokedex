@@ -6,6 +6,8 @@ import Filter from "./Filter";
 import apiCall from "../data/api";
 import { Route, Switch } from "react-router-dom";
 
+const apiUrl = "https://pokeapi.co/api/v2/pokemon?limit=25&offset=0";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -18,7 +20,7 @@ class App extends React.Component {
     this.renderPokeDetail = this.renderPokeDetail.bind(this);
   }
   componentDidMount() {
-    apiCall().then((data) => {
+    apiCall(apiUrl).then((data) => {
       this.setState({
         apiData: data.results,
       });
