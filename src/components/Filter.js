@@ -14,7 +14,6 @@ const Filter = (props) => {
         className="main__form-input"
         placeholder="Filtra pokemons por nombre"
         value={props.searchValue}
-        defaultValue="Pikachu"
       />
     </form>
   );

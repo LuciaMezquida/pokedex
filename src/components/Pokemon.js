@@ -50,7 +50,7 @@ class Pokemon extends React.Component {
         <p className="number">{`${this.props.num}/${id}`}</p>
         <img src={url} alt={name} className="poke-image" />
         <div className="text-container">
-          <h2 className="poke-name">{name}</h2>
+          <h2 className="poke-name">{this.props.name}</h2>
           <div className="evolution-container">
             <ul className="type-list">{typesList}</ul>
             <p className="evolution">{evolutionClass}</p>

@@ -8,8 +8,8 @@ class PokeList extends React.Component {
   render() {
     const { data, num } = this.props;
     const cardList = data.map((item) => (
-      <Link className="link" to={`/${item.name}`}>
-        <li key={item.name} className="list">
+      <Link key={item.name} className="link" to={`/${item.name}`}>
+        <li className="list">
           <Pokemon name={item.name} url={item.url} num={num} />
         </li>
       </Link>
