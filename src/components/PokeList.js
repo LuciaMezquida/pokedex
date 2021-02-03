@@ -17,7 +17,7 @@ class PokeList extends React.Component {
     return (
       <>
         <ul className="cards-list">{cardList}</ul>
-        <a href="#">
+        <a href="#" className="up">
           {" "}
           <i class="far fa-arrow-alt-circle-up"></i>
         </a>

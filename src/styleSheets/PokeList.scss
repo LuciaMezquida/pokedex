@@ -39,4 +39,20 @@
   padding: 10px;
   color: #ff7c02;
   font-size: 3rem;
+  animation: upDown 1s ease infinite;
+}
+.up {
+  animation: 3s, upDown, ease, infinite;
+}
+@keyframes upDown {
+  0% {
+    transform: translate(0, -5px);
+  }
+
+  50% {
+    transform: translate(0, 0px);
+  }
+  100% {
+    transform: translate(0, -5px);
+  }
 }
