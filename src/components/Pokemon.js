@@ -46,7 +46,15 @@ class Pokemon extends React.Component {
     return (
       <div className="poke-card">
         <p className="number">{`ID/${id}`}</p>
-        <img src={url} alt={name} className="poke-image" />
+        <img
+          src={
+            url
+              ? url
+              : "//askleo.askleomedia.com/wp-content/uploads/2004/06/no_image-300x245.jpg"
+          }
+          alt={name}
+          className="poke-image"
+        />
         <div className="text-container">
           <h2 className="poke-name">{this.props.name}</h2>
           <div className="evolution-container">
@@ -64,7 +72,9 @@ Pokemon.propTypes = {
 };
 
 Pokemon.defaultProps = {
-  url: "../images/default-img.png",
+  //url: "../images/default-img.png",
+  url:
+    "https://askleo.askleomedia.com/wp-content/uploads/2004/06/no_image-300x245.jpg",
   name: "En construcción",
 };
 export default Pokemon;

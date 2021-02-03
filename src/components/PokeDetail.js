@@ -73,13 +73,17 @@ class PokeDetail extends Component {
           <div>
             <img
               className="detail__image"
-              src={image}
+              src={
+                image
+                  ? image
+                  : "//askleo.askleomedia.com/wp-content/uploads/2004/06/no_image-300x245.jpg"
+              }
               alt={this.props.name}
               className="detail__image"
             />
             <img
               src={image_back}
-              alt={this.props.name}
+              alt={image_back ? this.props.name : ""}
               className="detail__image"
             />
           </div>
