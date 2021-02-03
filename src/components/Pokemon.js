@@ -45,7 +45,7 @@ class Pokemon extends React.Component {
     ));
     return (
       <div className="poke-card">
-        <p className="number">{`${this.props.num}/${id}`}</p>
+        <p className="number">{`ID/${id}`}</p>
         <img src={url} alt={name} className="poke-image" />
         <div className="text-container">
           <h2 className="poke-name">{this.props.name}</h2>
@@ -60,7 +60,6 @@ class Pokemon extends React.Component {
 }
 
 Pokemon.propTypes = {
-  num: PropTypes.number.isRequired,
   url: PropTypes.string.isRequired,
 };
 

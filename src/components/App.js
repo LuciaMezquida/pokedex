@@ -6,7 +6,7 @@ import Filter from "./Filter";
 import apiCall from "../data/api";
 import { Route, Switch } from "react-router-dom";
 
-const apiUrl = "https://pokeapi.co/api/v2/pokemon?limit=25&offset=0";
+const apiUrl = "https://pokeapi.co/api/v2/pokemon?limit=900&offset=0";
 
 class App extends React.Component {
   constructor(props) {
@@ -69,7 +69,6 @@ class App extends React.Component {
               <PokeList
                 data={this.filteredData()}
                 searchValue={searchValue}
-                num={apiData.length}
               />
             </Route>
             <Route path="/:name" render={this.renderPokeDetail} />

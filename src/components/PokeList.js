@@ -14,7 +14,15 @@ class PokeList extends React.Component {
         </li>
       </Link>
     ));
-    return <ul className="cards-list">{cardList}</ul>;
+    return (
+      <>
+        <ul className="cards-list">{cardList}</ul>
+        <a href="#">
+          {" "}
+          <i class="far fa-arrow-alt-circle-up"></i>
+        </a>
+      </>
+    );
   }
 }
 
